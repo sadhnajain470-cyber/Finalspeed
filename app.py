@@ -98,6 +98,17 @@ def service_worker():
     return response
 
 
+@app.get("/download/android")
+def download_android_app():
+    return send_from_directory(
+        Path(app.static_folder) / "downloads",
+        "CampusFlow.apk",
+        mimetype="application/vnd.android.package-archive",
+        as_attachment=True,
+        download_name="CampusFlow.apk",
+    )
+
+
 _db_pool = None
 _db_pool_lock = Lock()
 
