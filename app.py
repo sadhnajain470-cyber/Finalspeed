@@ -100,9 +100,17 @@ def service_worker():
 
 @app.get("/download/android")
 def download_android_app():
+    apk_path = Path(app.static_folder) / "downloads" / "CampusFlow.apk"
+    if not apk_path.is_file():
+        root_apk_path = Path(app.root_path) / "CampusFlow.apk"
+        parent_apk_path = Path(app.root_path).parent / "CampusFlow.apk"
+        apk_path = next(
+            (path for path in (root_apk_path, parent_apk_path) if path.is_file()),
+            apk_path,
+        )
     return send_from_directory(
-        Path(app.static_folder) / "downloads",
-        "CampusFlow.apk",
+        apk_path.parent,
+        apk_path.name,
         mimetype="application/vnd.android.package-archive",
         as_attachment=True,
         download_name="CampusFlow.apk",
