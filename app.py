@@ -51,7 +51,18 @@ def load_local_environment():
 load_local_environment()
 
 
-app = Flask(__name__)
+def create_flask_app(project_dir):
+    nested_project_dir = project_dir / "demo #1"
+    if not (project_dir / "templates").is_dir() and (nested_project_dir / "templates").is_dir():
+        return Flask(
+            __name__,
+            template_folder=str(nested_project_dir / "templates"),
+            static_folder=str(nested_project_dir / "static"),
+        )
+    return Flask(__name__)
+
+
+app = create_flask_app(Path(__file__).resolve().parent)
 app.config.update(
     SECRET_KEY=os.getenv("FLASK_SECRET_KEY", "local-dev-change-this-secret"),
     SESSION_COOKIE_HTTPONLY=True,
