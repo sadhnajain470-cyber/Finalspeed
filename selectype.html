@@ -13,4 +13,7 @@
   <article class="card reveal"><span class="card-index">02 / STUDENT</span><div class="icon cyan">S</div><h2>Student portal</h2><p>Check attendance and explore term marks with clear progress charts.</p><a class="btn" href="{{ url_for('student_login') }}">Enter student space <span class="btn-arrow">→</span></a></article>
   <article class="card reveal admission-entry-card"><span class="card-index">03 / JOIN CAMPUS</span><div class="icon gold-icon">+</div><h2>New admission</h2><p>Register a student, choose class and section, and create their login password.</p><a class="btn" href="{{ url_for('admission') }}">Start admission <span class="btn-arrow">→</span></a></article>
 </div>
+<div class="apk-download">
+  <a class="btn" href="{{ url_for('download_android_app') }}">Download Android app <span class="btn-arrow">↓</span></a>
+</div>
 {% endblock %}
