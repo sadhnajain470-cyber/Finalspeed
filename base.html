@@ -48,7 +48,7 @@
 <main class="main{% if logged_in %} workspace-main{% endif %}">{% block content %}{% endblock %}</main>
 {% if logged_in %}<footer class="workspace-footer"><span>CampusFlow</span><i>|</i> Making every school day count</footer></div>{% else %}<footer class="footer">CampusFlow | School, made a little simpler</footer></div>{% endif %}
 {% if logged_in %}</div>{% endif %}
-<a class="apk-download-link" href="{{ url_for('download_android_app') }}">Download Android app <span aria-hidden="true">↓</span></a>
+<a class="apk-download-link" href="{{ url_for('download_android_app') }}">Download our app <span aria-hidden="true">↓</span></a>
 {% if logged_in %}<script src="https://cdn.socket.io/4.8.4/socket.io.min.js" defer></script>{% endif %}
 <script src="{{ url_for('static', filename='js/app.js', v='realtime-2') }}" defer></script>
 </body></html>
